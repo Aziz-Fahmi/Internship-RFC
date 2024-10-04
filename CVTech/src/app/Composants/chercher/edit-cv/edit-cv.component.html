@@ -1,0 +1,83 @@
+      <td *ngIf="cv">
+        <div class="card">
+          
+          <h2>{{ cv.candidat }}</h2>
+          <tr>
+            candidat:
+            <input type="text" class="input" required="" [(ngModel)]="cv.candidat" placeholder="candidat" />
+          </tr>
+          <tr>
+            Poste:
+            <input type="text" class="input" required="" [(ngModel)]="cv.poste" placeholder="Poste" />
+
+          </tr>
+          <tr>
+            mail:
+            <input type="text" class="input" required="" [(ngModel)]="cv.mail" placeholder="mail" />
+          </tr>
+          <tr>
+            tel:
+            <input type="text" class="input" required="" [(ngModel)]="cv.tel" placeholder="tel" />
+          </tr>
+
+          <tr>
+            Expérience:
+            <input type="text" class="input" required="" [(ngModel)]="cv.experience" placeholder="Expérience" />
+          </tr>
+
+          <tr>
+            Compétences:
+            <input type="text" class="input" required="" [(ngModel)]="cv.competance" placeholder="Compétences" />
+          </tr>
+
+          <tr>
+            Formation:
+            <input type="text" class="input" required="" [(ngModel)]="cv.formation" placeholder="Formation" />
+          </tr>
+
+          <tr>
+            Langue:
+            <input type="text" class="input" required="" [(ngModel)]="cv.langue" placeholder="Langue" />
+          </tr>
+
+          <tr>
+            CV_URL:
+            <input type="text" class="input" required="" [(ngModel)]="cv.cV_URL" placeholder="CV_URL" />
+          </tr>
+
+          <tr>
+            Universités:
+            <input type="text" class="input" required="" [(ngModel)]="cv.universites" placeholder="Universités" />
+          </tr>
+          <tr>
+            Niveau d'études:
+            <input type="text" class="input" required="" [(ngModel)]="cv.niveau_d_etudes"
+              placeholder="Niveau d'études" />
+          </tr>
+          <tr>
+            Années d'expérience:
+            <input type="text" class="input" required="" [(ngModel)]="cv.annees_d_experience"
+              placeholder="Années d'expérience" />
+          </tr>
+
+          <tr>
+            Compétences et Expériences détectées:
+            <input type="text" class="input" required="" [(ngModel)]="cv.competences_et_Experiences_detectees"
+              placeholder="Compétences et Expériences détectées" />
+          </tr>
+
+          <tr>
+            pole:
+            <input type="text" class="input" required="" [(ngModel)]="cv.pole" placeholder="pole" />
+          </tr>
+
+
+          <button class="btn_add" (click)="updateCV(cv)"
+            *ngIf="cv.id">Enregistrer</button>
+          <button class="btn_add" (click)="deleteCV(cv)" *ngIf="cv.id">Supprimer</button>
+          <button class="btn_add" (click)="createCV(cv)" *ngIf="!cv.id">Créer</button>
+
+        </div>
+      </td>
+
+

@@ -1,0 +1,55 @@
+
+ <div class="logo">
+    <img src="assets/logorfc.png" alt="Logo">
+ </div>
+
+
+
+  <div class="login-box">
+      <h2>Ajouter un utilisateur</h2>
+      <form [formGroup]="signUpForm">
+        <div class="user-box">
+          <input formControlName="nom" type="text" name="" required="">
+          <label>Nom</label>
+        </div>
+        <small *ngIf="signUpForm.controls['nom'].dirty && signUpForm.hasError('required','nom')"  class="text-danger"> *Nom est obligatoire !! </small>
+
+
+        <div class="user-box">
+          <input formControlName="prenom" type="text" name="" required="">
+          <label>Prénom</label>
+        </div>
+        <small *ngIf="signUpForm.controls['prenom'].dirty && signUpForm.hasError('required','prenom')"  class="text-danger"> *Prenom est obligatoire !! </small>
+
+
+        <div class="user-box">
+            <input formControlName="role" type="text" name="" required="" >
+            <label>Role (admin / utilisateur)</label>
+          </div>
+          <small *ngIf="signUpForm.controls['role'].dirty && signUpForm.hasError('required','role')"  class="text-danger"> *Role est obligatoire !! </small>
+
+
+        <div class="user-box">
+            <input formControlName="username" type="text" name="" required="">
+            <label>Pseudo</label>
+          </div>
+          <small *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')"  class="text-danger"> *Pseudo est obligatoire !! </small>
+
+
+          <div class="user-box">
+            <input formControlName="password" type="password" name="" required="">
+            <label>Mot de passe</label>
+          </div>
+          <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')"  class="text-danger"> *Mot de passe est obligatoire !! </small>
+
+
+          <button (click)="onAjout()" type="submit">
+            Ajouter
+          </button>
+          <button (click)="onRetour()" type="submit">
+            Retourner
+          </button>
+
+
+      </form>
+    </div>

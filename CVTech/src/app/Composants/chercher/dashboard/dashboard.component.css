@@ -1,0 +1,59 @@
+
+li,a{
+    color:rgb(0, 0, 0);
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;   
+}
+
+header{
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 15px 10%;
+}
+
+svg{
+    color: #315cfd;
+    
+}
+
+.logo{
+    cursor: pointer;
+}
+
+.nav__links{
+    list-style: none;
+}
+
+.nav__links li{
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+transition: all 0.3s ease 0s;
+}
+.nav__links li a:hover{
+color: #315cfd;
+}
+
+
+
+
+
+
+.bg {
+    position: relative;
+    padding-bottom: 56.25%; /* Set the aspect ratio of the iframe to 16:9 */
+    height: 0;
+    overflow: hidden;
+  }
+
+  .bg iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Set the width of the iframe to 100% of its container */
+    height: 100%; /* Set the height of the iframe to 100% of its container */
+  }

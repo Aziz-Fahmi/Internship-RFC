@@ -1,0 +1,101 @@
+<header>
+  <img src="assets/logorfc.png" alt="Logo" width=20% height=5%>
+<nav>
+
+  <ul class="nav__links">
+    <svg  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#315cfd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
+    <li><a href="/dashboard">Dashboard</a></li>
+
+    <svg  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#315cfd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-table"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"></path></svg>
+    <li><a href="/tableau">Tableau</a></li>
+
+    <svg  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#315cfd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-table"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"></path></svg>
+    <li><a href="/chercher">Tableau complet</a></li>
+
+    <svg  width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#315cfd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+    <li><a href="/signup">Ajouter</a></li>
+ 
+    <li><a href="/login">Se déconnecter</a></li>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-disc"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="3"></circle></svg>
+  </ul>
+</nav>
+</header>
+
+<body>
+  <main class="table">
+    <section class="table__header">
+      <h3>Tableau des candidats</h3>
+
+      <div class="input-group">
+        <input type="text" [(ngModel)]="searchTerms" placeholder="Chercher...">
+
+      </div>
+      <button class="btn_add" (click)="initNewCV()">Créer un nouveau cv</button>
+
+
+    </section>
+
+    <section class="table__body">
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Id<br /><input [(ngModel)]="searchid" placeholder="id..." type="text" name="text" class="input2"></th>
+            <th>candidat<br /><input [(ngModel)]="searchCandidat" placeholder="candidat..." type="text" name="text"
+                class="input2"></th>
+            <th>Poste<br /><input [(ngModel)]="searchPoste" placeholder="Poste..." type="text" name="text"
+                class="input2"></th>
+            <th>Universités<br /><input [(ngModel)]="searchuniversites" placeholder="Universités..." type="text"
+                name="text" class="input2"></th>
+            <th>Niveau d'études<br /><input [(ngModel)]="searchniveau_d_etudes" placeholder="Niveau d'études..."
+                type="text" name="text" class="input2">
+            </th>
+            <th>Années d'éxpérience<br /><input [(ngModel)]="searchannees_d_experience"
+                placeholder="Années d'éxpérience..." type="text" name="text" class="input2"></th>
+            <th>pole<br /><input [(ngModel)]="searchpole" placeholder="pole..." type="text" name="text" class="input2">
+            </th>
+            <th>mail<br /><input [(ngModel)]="searchmail" placeholder="mail..." type="text" name="text" class="input2">
+            </th>
+            <th>tel<br /><input [(ngModel)]="searchtel" placeholder="tel..." type="text" name="text" class="input2">
+            </th>
+            <th>CV_URL<br /><input [(ngModel)]="searchcV_URL" placeholder="CV_URL..." type="text" name="text"
+                class="input2"></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cv of cvs | filter:searchTerms
+          | filterCandidat:searchCandidat 
+          | filterPoste:searchPoste  
+          | filterUni:searchuniversites 
+          | filterNiveau:searchniveau_d_etudes  
+          | filterYears:searchannees_d_experience 
+          | filterPole:searchpole  
+          | filterMail:searchmail 
+          | filterTel:searchtel  
+          | filterUrl:searchcV_URL 
+          | filterId:searchid ">
+            <td>{{ cv.id }}</td>
+            <td>{{ cv.candidat }}</td>
+            <td>{{ cv.poste }}</td>
+            <td>{{ cv.universites }}</td>
+            <td>{{ cv.niveau_d_etudes }}</td>
+            <td>{{ cv.annees_d_experience }}</td>
+            <td>{{ cv.pole }}</td>
+            <td>{{ cv.mail }}</td>
+            <td>{{ cv.tel }}</td>
+            <td><a class="aURL" href="{{ cv.cV_URL }}" target="_blank">{{ cv.cV_URL }}</a></td>
+            <td><button (click)="editCV(cv)">Modifier<span></span></button></td>
+
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+
+  </main>
+
+
+  <app-edit-cv [cv]="cvToEdit" (CVUpdated)="updateCVList($event)"></app-edit-cv>
+
+
+</body>
